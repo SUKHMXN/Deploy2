@@ -1,16 +1,20 @@
 import csv
+import joblib
+from flask import Flask, request, jsonify
 import nltk
-from nltk.corpus import wordnet
-from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.base import BaseEstimator, ClassifierMixin
-import string
-from nltk.corpus import stopwords
+from nltk.corpus import wordnet, stopwords
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
 from nltk.tokenize import word_tokenize
 from collections import defaultdict
 import numpy as np
 import pandas as pd
-import joblib
-from flask import Flask, request, jsonify
+import string
+
+# Ensure necessary NLTK data is downloaded
+nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 
 # Define all custom transformers and necessary functions
 
