@@ -5,3 +5,5 @@ gunicorn
 nltk
 collection
 pandas
+strings
+python-csv
