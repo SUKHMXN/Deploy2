@@ -183,10 +183,8 @@ class TokenizerTransformer(BaseEstimator, TransformerMixin):
 class LowercaseTransformer(BaseEstimator, TransformerMixin):
     def __init__(self, to_low):
         self.to_low = to_low
-
     def fit(self, x, y=None):
         return self
-
     def transform(self, x):
         return [self.to_low(w) for w in x]
 
@@ -246,6 +244,7 @@ class SequentialPredictor(BaseEstimator, ClassifierMixin):
         nearest_urls = [self.pivot_matrix.index[idx] for idx in indices.flatten()]
         return nearest_urls
 
+
 # Load the recommendation system from the pickle file
 recommendation_system = joblib.load("model.joblib")
 
@@ -253,6 +252,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def sensenlpmodel():
+    # print('')
     if request.method == 'POST':
         try:
             inputstring = request.form.get('inputstring')
